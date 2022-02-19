@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+
+
+{% block body %}
+<div class="container product_section_container">
+  <div class="row">
+    <div class="col product_section clearfix">
+
+      <!-- Breadcrumbs -->
+
+      <div class="breadcrumbs d-flex flex-row align-items-center">
+        <ul>
+          <li><a href="{% url 'pets:index' %}">Home</a></li>
+        </ul>
+      </div>
+
+      <!-- Sidebar -->
+
+      <div class="sidebar">
+        <div class="sidebar_section">
+          <div class="sidebar_title">
+            <h5>Pets Category</h5>
+          </div>
+          <ul class="sidebar_categories">
+            {% for categ in category %}
+            <li><a href="#">{{categ}}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+
+      <div class="main_content">
+
+        <!-- Products -->
+
+        <div class="products_iso">
+          <div class="row">
+            <div class="col">
+
+              <!-- Product Grid -->
+
+              <div class="product-grid">
+
+                <!-- Product 1 -->
+                {% for pet in pets_in_category %}
+                <div class="product-item men">
+                  <div class="product discount product_filter">
+                    <div class="product_image">
+                      <img src="{{pet.image.url}}" alt="">
+                    </div>
+                    <div class="favorite favorite_left"></div>
+                    <div class="product_info">
+                      <h3 class="product_name"><a href="single.html">{{pet}}</a></h3>
+                      <p>
+                      <h6>{{pet.description}}</h6>
+                    </div>
+                  </div>
+                  <div class="red_button add_to_cart_button"><a href="#">See More</a></div>
+                </div>
+                {% endfor %}
+             
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Benefit -->
+
+
+<!-- Newsletter -->
+
+<div class="newsletter">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        
+      </div>
+      <div class="col-lg-6">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  {% endblock body %}

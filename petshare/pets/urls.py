@@ -1,11 +1,11 @@
 from django.urls import path
+from .views import index
 
 
 
-
-
+app_name = 'pets'
 
 
 urlpatterns = [
-    # path('',),
+    path('', index , name='index'),
 ]
